@@ -2,6 +2,10 @@
 
 {% block content %}
   <h1 class="page-header">Books</h1>
+  <button class="btn btn-primary show-form">
+  <span class="glyphicon glyphicon-plus"></span>
+  New Book
+  </button>
   <table class="table" id="book-table">
     <thead>
       <tr>
@@ -32,4 +36,10 @@
       {% endfor %}
     </tbody>
   </table>
+
+  <div class="modal fade" id="modal-book">
+    <div class="modal-dialog">
+      <div class="modal-content"></div>
+    </div>
+  </div>
 {% endblock %}
