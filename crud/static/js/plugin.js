@@ -1,7 +1,8 @@
 $(document).ready(function(){
-	$('.show-form').click(function(){
+	var ShowForm = function(){
+		var btn = $(this);
 		$.ajax({
-			url: '/books/create',
+			url: btn.attr("data-url"),
 			type: 'get',
 			dataType:'json',
 			beforeSend: function(){
@@ -11,9 +12,9 @@ $(document).ready(function(){
 				$('#modal-book .modal-content').html(data.html_form);
 			}
 		});
-	});
+	};
 
-	$('#modal-book').on('submit','.create-form' , function(){
+	var SaveForm =  function(){
 		var form = $(this);
 		$.ajax({
 			url: form.attr('data-url'),
@@ -30,5 +31,14 @@ $(document).ready(function(){
 			}
 		})
 		return false;
-	})
+	}
+
+// create 
+$(".show-form").click(ShowForm);
+$("#modal-book").on("submit",".create-form",SaveForm);
+
+//update
+$('#book-table').on("click",".show-form-update",ShowForm);
+$('#modal-book').on("submit",".update-form",SaveForm)
+
 });
