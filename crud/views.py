@@ -42,26 +42,21 @@ def book_update(request,id):
 		form = BookForm(instance=book)
 	return save_all(request,form,'book_update.html')
 
+def book_delete(request,id):
+	data = dict()
+	book = get_object_or_404(Book,id=id)
+	if request.method == "POST":
+		book.delete()
+		data['form_is_valid'] = True
+		books = Book.objects.all()
+		data['book_list'] = render_to_string('book_list_2.html',{'books':books})
+	else:
+		context = {'book':book}
+		data['html_form'] = render_to_string('book_delete.html',context,request=request)
+
+	return JsonResponse(data)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-
-
-	
 

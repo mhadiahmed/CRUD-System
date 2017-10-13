@@ -41,4 +41,7 @@ $("#modal-book").on("submit",".create-form",SaveForm);
 $('#book-table').on("click",".show-form-update",ShowForm);
 $('#modal-book').on("submit",".update-form",SaveForm)
 
+//delete
+$('#book-table').on("click",".show-form-delete",ShowForm);
+$('#modal-book').on("submit",".delete-form",SaveForm)
 });

@@ -8,10 +8,17 @@
     <td>{{ book.pages }}</td>
     <td>{{ book.price }}</td>
     <td>  
-    <button class="btn btn-warning show-form-update" data-url="{% url 'book_update' book.id %}">
-  <span class="glyphicon glyphicon-pencil"></span>
-  Edit 
-  </button></td>
+      <button class="btn btn-warning show-form-update" data-url="{% url 'book_update' book.id %}">
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit 
+      </button>
+    </td>
+    <td>  
+      <button class="btn btn-danger show-form-delete" data-url="{% url 'book_delete' book.id %}">
+      <span class="glyphicon glyphicon-trash"></span>
+      Delete 
+      </button>
+    </td>
   </tr>
 {% empty %}
   <tr>
